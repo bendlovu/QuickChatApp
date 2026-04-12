@@ -20,6 +20,16 @@ String userName;
     String cellNumber;
     String firstName;
     String lastName;
+    
+    boolean checkuserName(String userName) {
+        if (userName.contains("_") && userName.length() <= 5) {
+            System.out.println("Username successfully captured");
+            return true;
+        } else {
+            System.out.println("Username is not correctly formatted; ensure it contains an underscore and is 5 characters or less.");
+            return false;
+        }
+    }
 
 
     public static void main(String[] args) {
