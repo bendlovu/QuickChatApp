@@ -119,6 +119,7 @@ String userName;
 
 
     public static void main(String[] args) {
+         QuickChatApp loginapp = new QuickChatApp();
         
     }
 }
