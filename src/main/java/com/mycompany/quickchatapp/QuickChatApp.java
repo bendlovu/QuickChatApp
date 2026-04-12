@@ -120,6 +120,17 @@ String userName;
 
     public static void main(String[] args) {
          QuickChatApp loginapp = new QuickChatApp();
+        Scanner menuScanner = new Scanner(System.in);
+        String choice = "";
+
         
+        while (!choice.equals("3")) { 
+             System.out.println("\n====== MENU ======");
+            System.out.println("1. Register");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
+            System.out.print("Choice: ");
+            
+        }
     }
 }
