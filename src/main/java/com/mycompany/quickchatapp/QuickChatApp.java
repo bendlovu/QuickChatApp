@@ -96,6 +96,20 @@ String userName;
         System.out.println("Registration Complete!");
     }
      
+    void userLogin() {
+       
+        if (this.userName == null) {
+            System.out.println("No user registered yet.");
+            return;
+        }
+
+        System.out.println("\n===== LOGIN =====");
+        System.out.print("Enter Username: ");
+        String loginUser = input.nextLine(); 
+
+        System.out.print("Enter Password: ");
+        String loginPass = input.nextLine(); 
+        
 
 
     public static void main(String[] args) {
