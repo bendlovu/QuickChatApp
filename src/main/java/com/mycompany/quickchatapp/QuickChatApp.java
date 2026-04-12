@@ -15,6 +15,13 @@ import java.util.Scanner;
 public class QuickChatApp {
 Scanner input = new Scanner(System.in);
 
+String userName;
+    String password;
+    String cellNumber;
+    String firstName;
+    String lastName;
+
+
     public static void main(String[] args) {
         
     }
