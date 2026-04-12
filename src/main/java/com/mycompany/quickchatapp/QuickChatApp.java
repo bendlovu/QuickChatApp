@@ -131,6 +131,12 @@ String userName;
             System.out.println("3. Exit");
             System.out.print("Choice: ");
             
+            choice = menuScanner.nextLine();
+            
+            switch (choice) {
+                case "1":
+                    loginapp.registerUser();
+                    break;
         }
     }
 }
