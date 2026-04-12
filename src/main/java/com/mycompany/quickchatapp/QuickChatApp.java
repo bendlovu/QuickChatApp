@@ -30,6 +30,21 @@ String userName;
             return false;
         }
     }
+    
+    boolean checkpassword(String password) {
+        boolean hasCap = !password.equals(password.toLowerCase());
+        boolean hasNum = password.matches(".*\\d.*");
+        boolean hasSpec = password.matches(".*[!@#$%^&*()].*");
+        
+        if (password.length() >= 8 && hasCap && hasNum && hasSpec) {
+            System.out.println("Password successfully captured");
+            return true;
+        } else {
+            System.out.println("Password must be 8+ characters, with a capital letter, a number, and a special character.");
+            return false;
+        }
+    }
+
 
 
     public static void main(String[] args) {
