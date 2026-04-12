@@ -45,6 +45,57 @@ String userName;
         }
     }
 
+     
+    boolean checkcellNumber(String cellNumber) {
+        if (cellNumber.startsWith("+27") && cellNumber.length() == 12) {
+            return true;
+        } else {
+            System.out.println("Cellphone number must start with +27 and be 12 characters long.");
+            return false;
+        }
+    }
+    
+    void registerUser() {
+        System.out.println("\n===== REGISTER =====");
+        
+        // Fix for "nullnull": Capture names first
+        System.out.print("Enter First Name: ");
+        this.firstName = input.nextLine();
+        
+        System.out.print("Enter Last Name: ");
+        this.lastName = input.nextLine();
+        
+         while (true) {
+            System.out.print("Enter Username: ");
+            String tempUser = input.nextLine();
+            if (checkuserName(tempUser)) {
+                this.userName = tempUser;
+                break;
+            }
+        }
+         
+         while (true) {
+            System.out.print("Enter Password: ");
+            String tempPass = input.nextLine();
+            if (checkpassword(tempPass)) {
+                this.password = tempPass;
+                break;
+            }
+        }
+         
+         
+        while (true) {
+            System.out.print("Enter CellPhone Number: ");
+            String tempCell = input.nextLine();
+            if (checkcellNumber(tempCell)) {
+                this.cellNumber = tempCell;
+                break;
+            }
+        }
+     
+        System.out.println("Registration Complete!");
+    }
+     
 
 
     public static void main(String[] args) {
