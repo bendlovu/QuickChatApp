@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Ezinhle
  */
 public class QuickChatApp {
-
+Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         
