@@ -110,6 +110,12 @@ String userName;
         System.out.print("Enter Password: ");
         String loginPass = input.nextLine(); 
         
+        if (loginUser.equals(this.userName) && loginPass.equals(this.password)) {
+          System.out.println("\nWelcome " + firstName + " " + lastName + "! It is great to see you again.");
+        } else {
+            System.out.println("Username or password incorrect. Please try again.");
+        }
+     }
 
 
     public static void main(String[] args) {
