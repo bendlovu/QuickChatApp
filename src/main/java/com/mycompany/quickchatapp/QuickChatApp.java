@@ -137,6 +137,10 @@ String userName;
                 case "1":
                     loginapp.registerUser();
                     break;
+                     case "2":
+                    loginapp.userLogin();
+                    break;
         }
     }
+}
 }
