@@ -15,13 +15,13 @@ import java.util.Scanner;
 public class QuickChatApp {
 Scanner input = new Scanner(System.in);
 
-String userName;
-    String password;
-    String cellNumber;
-    String firstName;
-    String lastName;
+   public String userName;
+   public String password;
+   public String cellNumber;
+   public String firstName;
+   public String lastName;
     
-    boolean checkuserName(String userName) {
+     public boolean checkuserName(String userName) {
         if (userName.contains("_") && userName.length() <= 5) {
             System.out.println("Username successfully captured");
             return true;
@@ -31,7 +31,7 @@ String userName;
         }
     }
     
-    boolean checkpassword(String password) {
+   public boolean checkpassword(String password) {
         boolean hasCap = !password.equals(password.toLowerCase());
         boolean hasNum = password.matches(".*\\d.*");
         boolean hasSpec = password.matches(".*[!@#$%^&*()].*");
@@ -46,7 +46,7 @@ String userName;
     }
 
      
-    boolean checkcellNumber(String cellNumber) {
+  public  boolean checkcellNumber(String cellNumber) {
         if (cellNumber.startsWith("+27") && cellNumber.length() == 12) {
             return true;
         } else {
@@ -116,6 +116,60 @@ String userName;
             System.out.println("Username or password incorrect. Please try again.");
         }
      }
+    public static void MessageSystem(){
+        Scanner input = new Scanner(System.in);
+        Message messageManager = new Message();
+        
+        System.out.println("\n ======QUICKCHAT MESSAGING SYSTEM=====");
+        System.out.println("Enter number of message you want to send");
+        int element = input.nextInt();
+        input.nextLine();
+        
+        for (int i=0; i< element; i++) {
+            System.out.println(" \n Entering Message" + (i + 1) + " of " + element + "---");
+            
+            System.out.println("Enter Recipient Phone Number (+27...): ");
+            String phoneNumber = input.nextLine();
+            
+            System.out.println("Enter Message Text: ");
+            String messageText = input.nextLine();
+            
+           String msgID = messageManager.getMessageID(); 
+           if (messageManager.checkMessageID()) {
+               System.out.println("Message ID Generated: " + msgID);
+           } else{
+               System.out.println("ID is too long");
+           }
+           
+           String phoneResult = messageManager.checkRecipientCell(phoneNumber);
+            System.out.println(phoneResult);
+            
+            String lengthStatus = messageManager.checkMessageLength(messageText);
+            System.out.println(lengthStatus);
+            
+            String messageHash = messageManager.createMessageHash(msgID,messageText);
+            String fullSummaryLine = messageManager.PrintMessages(msgID, messageHash, phoneNumber, messageText);
+            
+            System.out.println("\nChoose an option:");
+            System.out.println("1) Send Message");
+            System.out.println("2) Disregard Message");
+            System.out.println("3) Store Message to send later");
+            System.out.println(" Your Choice: ");
+            int statusChoice = input.nextInt();
+            input.nextLine();
+            
+            String finalActionStatus = messageManager.sentMessage(statusChoice, fullSummaryLine);
+            System.out.println(finalActionStatus);
+            
+            System.out.println("\n ===MESSAGE SUMMARY===");
+            System.out.println();
+            System.out.println("========================");
+        }
+        
+      for (int y=0; y<Message.totalMessages; y++) {
+          System.out.println("Stored Record [" + y + "] ->" + Message.sentMessages[y]);
+      }
+    }
 
 
     public static void main(String[] args) {
